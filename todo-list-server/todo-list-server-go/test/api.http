@@ -1,0 +1,48 @@
+
+### 
+POST http://127.0.0.1:8080/api/getItemList
+Content-Type: application/json; charset=utf-8
+
+{
+   
+}
+
+### 
+
+POST http://127.0.0.1:8080/api/addItem
+Content-Type: application/json; charset=utf-8
+
+{
+    "title": "标题",
+    "content": "内容"
+}
+
+### 
+
+POST http://127.0.0.1:8080/api/getItemById
+Content-Type: application/json; charset=utf-8
+
+{
+    "item_id": 1
+}
+
+### 
+
+POST http://127.0.0.1:8080/api/deleteItemById
+Content-Type: application/json; charset=utf-8
+
+{
+    "item_id": 1
+}
+
+
+
+### 
+
+POST http://127.0.0.1:8080/api/updateItemById
+Content-Type: application/json; charset=utf-8
+
+{
+    "item_id": 1,
+    "title": "新标题"
+}
