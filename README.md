@@ -14,7 +14,9 @@ todo-list-server  # 服务端实现
     /todo-list-server-java
 ```
 
-# 使用说明
+# 下载体验
+
+下载地址：[https://github.com/mouday/todo-list/releases](https://github.com/mouday/todo-list/releases)
 
 1、目录
 
@@ -52,6 +54,3 @@ java -jar todo-list-server-java-0.0.1.jar
 4、浏览器打开地址
 
 http://127.0.0.1:8080/
-
-
-
