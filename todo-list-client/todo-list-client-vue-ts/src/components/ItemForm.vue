@@ -4,7 +4,7 @@
     :model="ruleForm"
     status-icon
     :rules="rules"
-    label-width="120px"
+    label-width="60px"
     class="demo-ruleForm"
   >
     <el-form-item
@@ -27,14 +27,15 @@
       />
     </el-form-item>
 
-    <el-form-item>
+    <div class="text-align--center">
+      <el-button @click="resetForm(ruleFormRef)">重置</el-button>
+
       <el-button
         type="primary"
         @click="submitForm(ruleFormRef)"
         >保存</el-button
       >
-      <el-button @click="resetForm(ruleFormRef)">重置</el-button>
-    </el-form-item>
+    </div>
   </el-form>
 </template>
 

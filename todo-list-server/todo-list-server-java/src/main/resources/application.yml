@@ -1,0 +1,52 @@
+server:
+  port: 8080
+
+# DataSource Config
+spring:
+  datasource:
+#    mysql
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/db_data?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+#    username: root
+#    password: 123456
+
+  # h2
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:./database.h2
+    username: sa
+    password: 123456
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: H2
+    show-sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+#  sql:
+#    init:
+#      schema-locations:
+#        - classpath:db/schema-h2.sql
+
+#      data-locations: classpath:db/data-h2.sql
+
+  freemarker:
+    template-loader-path: classpath:/public/
+    suffix: .html
+
+  # 只对 Date 类型生效 https://www.cnblogs.com/chengxy-nds/p/13600799.html
+#  jackson:
+#    date-format: yyyy-MM-dd HH:mm:ss
+#    time-zone: GMT+8
+
+mybatis-plus:
+  configuration:
+    # 开启SQL语句打印
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      # 自增主键策略
+      id-type: AUTO

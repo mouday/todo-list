@@ -22,7 +22,7 @@ export async function getItemList(data: {
   })
 }
 
-export async function addItem(data: object) {
+export async function addItem(data: { title: string; content: string }) {
   return await request<ItemModel>({
     method: 'POST',
     url: '/addItem',
@@ -30,7 +30,12 @@ export async function addItem(data: object) {
   })
 }
 
-export async function updateItemById(data: object) {
+export async function updateItemById(data: {
+  item_id: number
+  status?: number
+  title?: string
+  content?: string
+}) {
   return await request({
     method: 'POST',
     url: '/updateItemById',
@@ -38,7 +43,7 @@ export async function updateItemById(data: object) {
   })
 }
 
-export async function deleteItemById(data: object) {
+export async function deleteItemById(data: { item_id: number }) {
   return await request({
     method: 'POST',
     url: '/deleteItemById',

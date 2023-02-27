@@ -7,19 +7,22 @@
     <el-table-column
       prop="title"
       label="标题"
+      header-align="center"
     />
     <el-table-column
       prop="content"
       label="备注"
+      header-align="center"
       ><template #default="scope">
         <span>{{ scope.row.content || '-' }}</span>
       </template></el-table-column
     >
-    
+
     <el-table-column
       prop="status"
       label="状态"
       width="90"
+      header-align="center"
     >
       <template #default="scope">
         <template v-if="scope.row.status == ItemStatusEnum.delete">
@@ -78,30 +81,34 @@
       prop="create_time"
       label="创建时间"
       width="180"
+      header-align="center"
     />
 
     <el-table-column
       prop="update_time"
       label="更新时间"
       width="180"
-      center
+      header-align="center"
     />
 
     <el-table-column
       prop="update_time"
       label="编辑"
       width="80"
+      header-align="center"
+      align="center"
     >
       <template #default="scope">
-        <el-button
+        <el-link
           type="primary"
+          :underline="false"
           @click="handleEditClick(scope.row)"
           :disabled="props.status == ItemStatusEnum.delete"
         >
           <el-icon style="vertical-align: middle">
             <Edit />
           </el-icon>
-        </el-button>
+        </el-link>
       </template>
     </el-table-column>
 
@@ -109,17 +116,20 @@
       prop="update_time"
       label="移除"
       width="80"
+      header-align="center"
+      align="center"
     >
       <template #default="scope">
-        <el-button
+        <el-link
           type="danger"
+          :underline="false"
           @click="handleDelete(scope.row)"
           :disabled="props.status == ItemStatusEnum.delete"
         >
           <el-icon style="vertical-align: middle">
             <Delete />
           </el-icon>
-        </el-button>
+        </el-link>
       </template>
     </el-table-column>
   </el-table>
@@ -194,16 +204,18 @@ const getData = async () => {
   }
 
   const res = await getItemList(params)
+  if (res) {
+    console.log(res)
 
-  console.log(res)
-
-  list.value = res.data.list
-  total.value = res.data.total
+    list.value = res.data.list
+    total.value = res.data.total
+  }
 }
 
 const handleCurrentChange = () => {
   getData()
 }
+
 onMounted(() => {
   resetData()
 })
@@ -211,38 +223,27 @@ onMounted(() => {
 const handleDelete = async (row: ItemModel) => {
   console.log(row.item_id)
   const res = await deleteItemById({ item_id: row.item_id })
-
-  if (res.code == 0) {
+  if (res) {
     ElMessage({
       message: '保存成功',
       type: 'success',
     })
     resetData()
-  } else {
-    ElMessage({
-      message: res.msg,
-      type: 'error',
-    })
   }
 }
 
-const handleStatusChange = async (row: ItemModel, val: any) => {
+const handleStatusChange = async (row: ItemModel, val: number) => {
   console.log(row.item_id)
 
   const res = await updateItemById({ item_id: row.item_id, status: val })
 
-  if (res.code == 0) {
+  if (res) {
     ElMessage({
       message: '保存成功',
       type: 'success',
     })
     // resetData()
     row.status = val
-  } else {
-    ElMessage({
-      message: res.msg,
-      type: 'error',
-    })
   }
 }
 </script>
