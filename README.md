@@ -7,11 +7,15 @@
 ```bash
 todo-list-client  # 客户端实现
     /todo-list-client-vue
-    /todo-list-client-vue-ts
+    /todo-list-client-vue-ts # 未完成
+    /todo-list-client-react  # 未完成
 
 todo-list-server  # 服务端实现
     /todo-list-server-go
     /todo-list-server-java
+    /todo-list-server-python # 未完成
+    /todo-list-server-php    # 未完成
+    /todo-list-server-node   # 未完成
 ```
 
 # 下载体验
