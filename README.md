@@ -8,7 +8,7 @@
 todo-list-client  # 客户端实现
     /todo-list-client-vue
     /todo-list-client-vue-ts # 未完成
-    /todo-list-client-react  # 未完成
+    /todo-list-client-react
 
 todo-list-server  # 服务端实现
     /todo-list-server-go
