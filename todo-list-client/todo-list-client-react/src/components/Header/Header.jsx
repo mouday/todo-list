@@ -1,31 +1,36 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import './Header.css'
 
 export default class Header extends Component {
-  state = {
-    inputRef: React.createRef(),
+  // 类型限制
+  static propTypes = {
+    onAddItem: PropTypes.func.isRequired,
   }
 
   handleKeyUp = (e) => {
-    const { inputRef } = this.state
+    const { target, key } = e
+
     const { onAddItem } = this.props
 
-    if (e.key == 'Enter') {
-      // 获取输入框的值
-      const inputValue = e.target.value
-      onAddItem(inputValue)
-      inputRef.current.value = ''
+    if (key !== 'Enter') {
+      return
     }
+
+    if (!target.value.trim()) {
+      return
+    }
+
+    // 获取输入框的值
+    onAddItem(target.value.trim())
+    target.value = ''
   }
 
   render() {
-    const { inputRef } = this.state
-
     return (
       <div className="header">
         <input
           type="text"
-          ref={inputRef}
           className="mo-input header__input"
           placeholder="输入内容"
           onKeyUp={this.handleKeyUp}

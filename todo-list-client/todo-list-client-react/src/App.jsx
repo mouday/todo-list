@@ -49,7 +49,11 @@ export default class App extends Component {
     const { list } = this.state
 
     const newList = list.map((item) => {
-      return data.id == item.id ? { ...item, selected: data.selected } : item
+      if (data.id == item.id) {
+        return { ...item, selected: data.selected }
+      } else {
+        return item
+      }
     })
 
     this.setState({
@@ -62,6 +66,16 @@ export default class App extends Component {
 
     this.setState({
       list: list.filter((item) => !item.selected),
+    })
+  }
+
+  handleAllSeleted = (value) => {
+    const { list } = this.state
+
+    this.setState({
+      list: list.map((item) => {
+        return { ...item, selected: value }
+      }),
     })
   }
 
@@ -79,6 +93,7 @@ export default class App extends Component {
         <Footer
           list={list}
           onRemoveSeleted={this.handleRemoveSeleted}
+          onAllSeleted={this.handleAllSeleted}
         />
       </div>
     )
