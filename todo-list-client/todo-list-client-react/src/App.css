@@ -1,0 +1,61 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+/* 去除默认样式 */
+.mo-input {
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: none;
+  background-color: transparent;
+  font-size: inherit;
+}
+
+.mo-input:focus {
+  outline: none;
+}
+
+/* 自定义样式 */
+.mo-input {
+  color: #606266;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #dcdfe6;
+
+  box-sizing: border-box;
+  display: inline-block;
+  transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  width: 180px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+}
+
+/* 提示文字 */
+.mo-input::placeholder {
+  color: #c0c4cc;
+}
+
+/* 鼠标hover */
+.mo-input:hover {
+  border-color: #c0c4cc;
+}
+
+/* 获得焦点 */
+.mo-input:focus {
+  border-color: #3677f0;
+}
+
+.hide {
+  display: none;
+}

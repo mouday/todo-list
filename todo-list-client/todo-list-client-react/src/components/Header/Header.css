@@ -1,0 +1,8 @@
+.header {
+  line-height: 50px;
+  background-color: #fff;
+}
+
+.header__input {
+  width: 100%;
+}

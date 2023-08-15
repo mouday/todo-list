@@ -1,0 +1,28 @@
+.item {
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.item:hover {
+  background-color: #dddddd;
+}
+
+.item:hover .item__delete {
+  display: block;
+}
+
+.item__title {
+  flex: 1;
+}
+
+.item__delete {
+  padding: 0 10px;
+  line-height: 26px;
+  background-color: red;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  display: none;
+}
